@@ -6,7 +6,10 @@ from django.utils import timezone  # django带时区管理的时间类
 from .models import dzTable, tsglyTable, smTable, tsTable, jsTable, yyTable, mail  # 引入数据库、
 import mimetypes
 from django.http import HttpResponseRedirect, HttpResponse
+from cryptography.fernet import Fernet
 import pymysql
+
+key = Fernet.generate_key()
 def home(request):
     return render(request, 'home.html')
 
@@ -23,7 +26,8 @@ def login_view(request):  # 读者、管理员用户登录
         password = request.POST.get("password")
         if username == '1234':
             if password == 'aVHtf0Myk5RDpbW':
-                context['msg'] = 'yy'
+                
+                context['msg'] = key
             else:
                 context['msg'] = 'Nice try'
             return render(request, 'home.html', context=context)
@@ -256,14 +260,29 @@ def dz_yydj(request):  # 读者预约登记(借不到的书)
 def download_file(request):
     # file name
     fl_path = 'a.txt'
+
+    fernet = Fernet(key)
+    with open('a.txt', 'rb') as file:
+        original = file.read()
+
+    encrypted = fernet.encrypt(original)
+    
+    with open('a.txt', 'wb') as encrypted_file:
+        encrypted_file.write("b'".encode() + encrypted+ "'".encode())
+        encrypted_file.close()
+
     # download name
     filename = 'flag.txt'
-
-    fl = open(fl_path, 'r')
+    fl = open(fl_path, 'rb')
+    print(fl)
+    #encMessage = fernet.encrypt(fl)
     mime_type, _ = mimetypes.guess_type(fl_path)
     response = HttpResponse(fl, content_type=mime_type)
     response['Content-Disposition'] = "attachment; filename=%s" % filename
+
     return response
+
+
 
 def dz_grztcx(request):  # 读者个人(借书)状态查询
     if request.session.get('login_type', None) != 'dz':

@@ -13,14 +13,14 @@
 
 <form class="login-box" role="form" action="/login_view/" method="post">
     {% csrf_token %}
-    <h3 class="login-title"> 图书管理统一身份认证 </h3>
-    <label for="zh" class="left pt-1"> 账号 </label>
-    <input name="username" type="text" class="form-control" id="zh" placeholder="请输入E-mail或ID" value="{{ username }}" required autofocus>
-    <label for="mm" class="left pt-2"> 密码 </label>
-    <input name="password" type="password" class="form-control" id="mm" placeholder="请输入密码" value="">
+    <h3 class="login-title"> Identity Authentication for Library Management </h3>
+    <label for="zh" class="left pt-1"> Account </label>
+    <input name="username" type="text" class="form-control" id="zh" placeholder="Please enter email or ID" value="{{ username }}" required autofocus>
+    <label for="mm" class="left pt-2"> Password </label>
+    <input name="password" type="password" class="form-control" id="mm" placeholder="Please enter password" value="">
     <div class="form-group" style="color: red">{{ msg }}</div>
-    <button class="btn btn btn-primary mr-5" type="submit" id="submit">登录</button>
-    <a class="btn btn-outline-primary" href="/register/" role="button">注册</a >
+    <button class="btn btn btn-primary mr-5" type="submit" id="submit">Login</button>
+    <a class="btn btn-outline-primary" href="/register/" role="button">Register</a >
 </form>
 <div id="output"></div>
 
