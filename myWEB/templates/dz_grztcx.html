@@ -11,11 +11,11 @@
 </head>
 <body>
 <nav class="navbar navbar-dark sticky-top flex-md-nowrap p-0 shadow" style="background-color: #29abff;">
-    <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="/dz_index/" style="font-weight: bold;font-size: x-large;">图书管理系统</a>
-    <span style="font-size: medium; color: #ffffff; margin-top: 0px; font-weight: bold;font-size: large;">欢迎  {{ xm }}</span>
+    <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="/dz_index/" style="font-weight: bold;font-size: x-large;">Library Management System</a>
+    <span style="font-size: medium; color: #ffffff; margin-top: 0px; font-weight: bold;font-size: large;">Welcome  {{ xm }}</span>
     <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-            <a class="nav-link" href="/logout_view/" style="font-weight: bold;color: #ffffff">退出登录</a>
+            <a class="nav-link" href="/logout_view/" style="font-weight: bold;color: #ffffff">Logout</a>
         </li>
     </ul>
 </nav>
@@ -27,25 +27,25 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/dz_index/">
                             <i class="zi zi_service"></i>
-                            <span>读者首页</span>
+                            <span>Reader Page</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/dz_smztcx/">
                             <i class="zi zi_search"></i>
-                            <span>书目状态查询</span>
+                            <span>Book Status</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/dz_yydj/">
                             <i class="zi zi_squareDown"></i>
-                            <span>预约登记</span>
+                            <span>Reservation</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="/dz_grztcx/">
                             <i class="zi zi_squareUp"></i>
-                            <span>个人状态查询</span>
+                            <span>Personal Status</span>
                         </a>
                     </li>
                 </ul>
@@ -55,17 +55,17 @@
 </div>
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-        <h1 class="h2">个人状态查询</h1>
+        <h1 class="h2">Personal Status</h1>
     </div>
     {% if grzt is not None %}
     <table class="table container-fluid">
         <thead class="thead-light">
         <tr>
-            <th> 图书id</th>
-            <th> 书名</th>
-            <th> 借阅时间</th>
-            <th> 应还时间</th>
-            <th> 归还时间</th>
+            <th> Book ID</th>
+            <th> Book Name</th>
+            <th> Borrow Time</th>
+            <th> Supposed retuen time</th>
+            <th> Return time</th>
         </tr>
         </thead>
         <tbody>
@@ -79,14 +79,14 @@
                     {% if elem.ghsj is not None %}
                         {{ elem.ghsj }}
                     {% else %}
-                        尚未归还
+                        No return yet
                     {% endif %}
             </tr>
         {% endfor %}
         </tbody>
     </table>
 {% else %}
-    读者尚未进行过借阅！
+    The reader don't have any borrow record！
 {% endif %}
 </main>
 

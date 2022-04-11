@@ -11,11 +11,11 @@
 </head>
 <body>
 <nav class="navbar navbar-dark sticky-top flex-md-nowrap p-0 shadow" style="background-color: #29abff;">
-    <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="/dz_index/" style="font-weight: bold;font-size: x-large;">图书管理系统</a>
-    <span style="font-size: medium; color: #ffffff; margin-top: 0px; font-weight: bold;font-size: large;">欢迎 {{ xm }}</span>
+    <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="/dz_index/" style="font-weight: bold;font-size: x-large;">Library Management System</a>
+    <span style="font-size: medium; color: #ffffff; margin-top: 0px; font-weight: bold;font-size: large;">Welcome {{ xm }}</span>
     <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-            <a class="nav-link" href="/logout_view/" style="font-weight: bold;color: #ffffff">退出登录</a>
+            <a class="nav-link" href="/logout_view/" style="font-weight: bold;color: #ffffff">Logout</a>
         </li>
     </ul>
 </nav>
@@ -33,19 +33,19 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="/dz_smztcx/">
                             <i class="zi zi_search"></i>
-                            <span>书目状态查询</span>
+                            <span>Book Status</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/dz_yydj/">
                             <i class="zi zi_squareDown"></i>
-                            <span>预约登记</span>
+                            <span>Reservation</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/dz_grztcx/">
                             <i class="zi zi_squareUp"></i>
-                            <span>个人状态查询</span>
+                            <span>Personal Status</span>
                         </a>
                     </li>
                 </ul>
@@ -55,32 +55,32 @@
 </div>
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-        <h1 class="h2">书目状态查询</h1>
+        <h1 class="h2">Book Status</h1>
     </div>
     <form role="form" action="/dz_smztcx/" method="post" class="container-fluid">
         {% csrf_token %}
         <div class="form-group row">
-            <label for="sm" class="col-md-1 col-form-label">书名</label>
+            <label for="sm" class="col-md-1 col-form-label">Book Name</label>
             <div class="col-sm-2">
                 <input name="sm" type="text" class="form-control" id="sm" placeholder="" value="{{ sm }}" autofocus>
             </div>
-            <label for="zz" class="col-md-1 col-form-label"> 作者 </label>
+            <label for="zz" class="col-md-1 col-form-label"> Author </label>
             <div class="col-sm-2">
                 <input name="zz" type="text" class="form-control" id="zz" placeholder="" value="{{ zz }}" autofocus>
             </div>
         </div>
         <div class="form-group row">
-            <label for="isbn" class="col-md-1 col-form-label"> ISBN号 </label>
+            <label for="isbn" class="col-md-1 col-form-label"> ISBN NO. </label>
             <div class="col-sm-2">
                 <input name="isbn" type="text" class="form-control" id="isbn" placeholder="" value="{{ isbn }}"
                        autofocus>
             </div>
-            <label for="cbs" class="col-md-1 col-form-label"> 出版社 </label>
+            <label for="cbs" class="col-md-1 col-form-label"> Publisher </label>
             <div class="col-sm-2">
                 <input name="cbs" type="text" class="form-control" id="cbs" placeholder="" value="{{ cbs }}" autofocus>
             </div>
         </div>
-        <button class="btn btn-primary" data-toggle="modal" data-target="#myModal"> 查询</button>
+        <button class="btn btn-primary" data-toggle="modal" data-target="#myModal"> Search</button>
     </form>
     <br>
     {% if msg %}
@@ -96,7 +96,7 @@
     {% if request.method == 'POST' %}
         {% if not smzt %}
             <div class="alert alert-warning alert-dismissible fade show" role="alert" style="display: inline-block">
-                未找到匹配信息！
+                No matching information!
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                 </button>
@@ -104,20 +104,20 @@
         {% else %}
             <hr>
             <br>
-            <h6 class="container-fluid"><b>查询结果:</b></h6>
+            <h6 class="container-fluid"><b>Searching result:</b></h6>
             <table class="table container-fluid">
                 <thead class="thead-light">
                 <tr class="table-primary">
-                    <th> ISBN号</th>
-                    <th> 书名</th>
-                    <th> 作者</th>
-                    <th> 出版社</th>
-                    <th> 出版年月</th>
-                    <th> 库藏册数</th>
-                    <th> 不外借册数</th>
-                    <th> 未借出册数</th>
-                    <th> 已借出册数</th>
-                    <th> 已预约册数</th>
+                    <th> ISBN NO.</th>
+                    <th> Book Name</th>
+                    <th> Author</th>
+                    <th> Publisher</th>
+                    <th> Publish date</th>
+                    <th> Storage</th>
+                    <th> Number of books not borrowed</th>
+                    <th> Books not loaned</th>
+                    <th> Number of books on loan</th>
+                    <th> Books reserved</th>
                 </tr>
                 </thead>
                 <tbody>
