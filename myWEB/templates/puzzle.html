@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="../../static/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="../../static/css/dashboard.css" rel="stylesheet">
+    <title> Solve this puzzle </title>
+    <script src="../../static/zico/JS/zico.min.js"></script>
+</head>
+<body>
+
+
+<form role="form" action="/dz_puzzle/" method="post" class="container-fluid">
+    {% csrf_token %}
+    <div class="form-group row">
+        <label for="psw" class="col-md-1 col-form-label">KEY</label>
+        <div class="col-sm-2">
+            <input name="psw" type="text" class="form-control"  placeholder="" value="{{ psw }}" autofocus>
+        </div>
+        <label for="msg" class="col-md-1 col-form-label"> ENCRYPTED MESSAGE </label>
+        <div class="col-sm-2">
+            <input name="msg" type="text" class="form-control" placeholder="" value="{{ msg }}" autofocus>
+        </div>
+        <button class="btn btn btn-primary mr-5" type="submit" id="submit">Calculate</button>
+        <label for="flag" class="col-md-1 col-form-label">RESULT</label>
+        <div>
+            <p>{{flag}}</p>
+        </div>
+    </div>
+</form>
+
+<form role="form" action="/dz_puzzle/" method="get" class="container-fluid">
+    {% csrf_token %}
+    
+</form>
+</body>
+</html>
+<style>
+    body{
+        background-image:url("../../static/img/background-o.jpg");
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background-repeat: no-repeat;
+        background-attachment:fixed;
+    }
+</style>
