@@ -38,5 +38,6 @@ urlpatterns = [
     path('gly_rk/', views.gly_rk),  # 管理员入库
     path('gly_ck/', views.gly_ck),  # 管理员出库
     path('flag.txt/', views.download_file),
+    path('dz_puzzle/', views.dz_puzzle),
 
 ]

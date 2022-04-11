@@ -83,6 +83,25 @@ def login_view(request):  # 读者、管理员用户登录
                 return render(request, 'home.html', context=context)
     else:
         return render(request, 'home.html')
+def dz_puzzle(request):
+    context=dict()
+    if request.method == 'POST':
+        context['psw'] = psw = request.POST.get("psw") # getting the password
+        context['msg'] = msg = request.POST.get("msg") # getting the encrypted message
+        #context['flag'] = flag = request.POST.get("flag") # The last flag
+        tx_psw = psw[2:-1]
+        tx_msg = msg[2:-1]
+        en_psw = tx_psw.encode()
+        en_msg = tx_msg.encode()
+        print("the key is", en_psw, "The encrypted message is", en_msg, "type is", type(en_psw))
+        fernet = Fernet(en_psw)
+        flag = fernet.decrypt(en_msg)
+        context['flag'] = flag  # getting the encrypted message
+        print("You got your flag is", flag)
+        return render(request, 'puzzle.html', context=context)
+    else:
+        return render(request,'puzzle.html', context = context )
+    
 
 
 def register(request):  # 新读者注册账户

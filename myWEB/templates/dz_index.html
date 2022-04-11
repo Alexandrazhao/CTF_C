@@ -4,16 +4,18 @@
     <meta charset="UTF-8">
     <link href="../../static/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
     <link href="../../static/css/dashboard.css" rel="stylesheet">
-    <title> 读者首页 </title>
+    <title> Main Page </title>
     <script src="../../static/zico/JS/zico.min.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-dark sticky-top flex-md-nowrap p-0 shadow" style="background-color: #29abff;">
-    <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="/dz_index/" style="font-weight: bold;font-size: x-large;">图书管理系统</a>
-    <span style="font-size: medium; color: #ffffff; margin-top: 0px; font-weight: bold;font-size: large;">欢迎  {{ xm }}</span>
+    <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="/dz_index/" style="font-weight: bold;font-size: x-large;">library management system
+
+    </a>
+    <span style="font-size: medium; color: #ffffff; margin-top: 0px; font-weight: bold;font-size: large;">welcome {{ xm }}</span>
     <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-            <a class="nav-link" href="/logout_view/" style="font-weight: bold;color: #ffffff">退出登录</a>
+            <a class="nav-link" href="/logout_view/" style="font-weight: bold;color: #ffffff">Log out</a>
         </li>
     </ul>
 </nav>
@@ -26,25 +28,33 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="/dz_index/">
                             <i class="zi zi_service"></i>
-                            <span>读者首页</span>
+                            <span>Main Page</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/dz_smztcx/">
                             <i class="zi zi_search"></i>
-                            <span>书目状态查询</span>
+                            <span>Bibliographic Status Inquiry</span>
                         </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dz_puzzle/">
+                        <i class="zi zi_search"></i>
+                        <span>Solve the Puzzle</span>
+                        </a>
+
+
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/dz_yydj/">
                             <i class="zi zi_squareDown"></i>
-                            <span>预约登记</span>
+                            <span>Reservation</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/dz_grztcx/">
                             <i class="zi zi_squareUp"></i>
-                            <span>个人状态查询</span>
+                            <span>Personal Status</span>
                         </a>
                     </li>
                 </ul>
@@ -52,7 +62,7 @@
         </nav>
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-                <h1 class="h2">读者首页</h1>
+                <h1 class="h2">Main page</h1>
             </div>
         </main>
     </div>
