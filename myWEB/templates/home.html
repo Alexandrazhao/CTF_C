@@ -71,12 +71,13 @@
             var l = 3;
             var n = 44;
 
-            while (y< n){
+            while (y < n) {
                 d +=c[(i*y)%61];
                 i = c.charCodeAt(d)%61;
-                y+=l;
+                y += l;
             }
-            //document.write(d)
+            d = 'FLAG_1{:' + d;
+            d += '}';
             
     });
     </script>

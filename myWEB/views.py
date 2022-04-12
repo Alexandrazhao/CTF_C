@@ -26,8 +26,7 @@ def login_view(request):  # 读者、管理员用户登录
         password = request.POST.get("password")
         if username == '1234':
             if password == 'aVHtf0Myk5RDpbW':
-                
-                context['msg'] = key
+                context['msg'] = "FLAG_2{:b'" + key.decode() + "'}"
             else:
                 context['msg'] = 'Nice try'
             return render(request, 'home.html', context=context)
@@ -38,8 +37,6 @@ def login_view(request):  # 读者、管理员用户登录
             context["msg"] = "Password missing"
             return render(request, 'home.html', context=context)
         if '@' in username:  # 读者使用邮箱登录
-            
-
             #result = dzTable.objects.filter(email=username)
             if result.exists() and check_password(password, result[0].psw):  # 读者邮箱登录成功
                 request.session['login_type'] = 'dz'
