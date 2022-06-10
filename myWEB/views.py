@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
-import os
+
 from django.contrib.auth.hashers import make_password, check_password  # 用户密码管理
 from django.utils import timezone  # django带时区管理的时间类
 from .models import dzTable, tsglyTable, smTable, tsTable, jsTable, yyTable, mail  # 引入数据库、
