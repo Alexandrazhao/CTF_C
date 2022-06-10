@@ -61,7 +61,7 @@ def login_view(request):  # 读者、管理员用户登录
             cur = conn.cursor()
             sql = "select * from testdb.myWEB_dztable where dzid='"+username+"';"
             count = cur.execute(sql)
-            print('查询的结果有%s条数据'%count)
+            print('hi'%count)
             #获取第一行
             result = cur.fetchall()
             print(type(result[0][4]))
