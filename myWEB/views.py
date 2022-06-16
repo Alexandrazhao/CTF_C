@@ -335,7 +335,7 @@ def gly_index(request):  # 管理员首页
         result = yyTable.objects.extra(where=["""datediff(curdate(), yysj) > 10"""])
         for elem in result:
             mail(
-                "预约过期通知",
+                "your reservation is expired",
                 "很遗憾，您预约的书《" + elem.isbn.sm + "》预约时间已经过期，您可以再次尝试预约",
                 elem.dzid.email
             )
