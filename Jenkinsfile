@@ -18,17 +18,20 @@ pipeline{
       }
     }
     
-    
-    stage('cat README'){
-      when {
-        branch "new-*"
-      }
-    }
-    
      stage("deploy"){
     
       steps{
         echo 'deploy the application...'
+      }
+    }
+    stage('cat README'){
+      when {
+        branch "new-*"
+      }
+      steps {
+        sh '''
+          cat README.md
+          '''
       }
     }
   
