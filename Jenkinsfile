@@ -18,6 +18,13 @@ pipeline{
       }
     }
     
+    
+    stage('cat README'){
+      when {
+        branch "new-*"
+      }
+    }
+    
      stage("deploy"){
     
       steps{
